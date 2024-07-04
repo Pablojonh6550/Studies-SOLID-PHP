@@ -24,6 +24,13 @@ class CarBuy
     public function setItens(string $itens, float $value): bool
     {
         array_push($this->itens, ["item" => $itens, "value" => $value]);
+        $this->totalValue += $value;
+
         return true;
+    }
+
+    public function totalValueCar(): float
+    {
+        return $this->totalValue;
     }
 }
