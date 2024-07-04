@@ -1,15 +1,16 @@
 {
-    "name": "pablo/app-carrinho_compras",
-    "type": "project",
-    "autoload": {
-        "psr-4": {
-            "Pablo\\AppCarrinhoCompras\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Jonh Pablo Vaz"
-        }
-    ],
-    "require": {}
+  "name": "pablo/app-carrinho_compras",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jonh Pablo Vaz",
+      "email": "pablojonh6550@gmail.com"
+    }
+  ],
+  "require": {}
 }
