@@ -13,7 +13,7 @@ class CarBuy
     public function __construct()
     {
         $this->itens = [];
-        $this->status = 'true';
+        $this->status = 'Aberto';
         $this->totalValue = 0;
     }
     public function getItens(): array
@@ -32,5 +32,21 @@ class CarBuy
     public function totalValueCar(): float
     {
         return $this->totalValue;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function confirmOrder(): void
+    {
+        $this->status = 'Confirmado';
+        $this->sendEmailConfirmation();
+    }
+
+    public function sendEmailConfirmation(): void
+    {
+        echo "<br /> ... envia email de confirmação ...";
     }
 }

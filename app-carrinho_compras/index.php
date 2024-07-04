@@ -17,3 +17,10 @@ echo "<br />";
 
 print_r($car->getItens());
 echo 'Valor total recalculado: ' . $car->totalValueCar();
+
+echo "<br />";
+echo 'Status: ' . $car->getStatus();
+
+$car->confirmOrder();
+echo "<br />";
+echo 'Status: ' . $car->getStatus();
