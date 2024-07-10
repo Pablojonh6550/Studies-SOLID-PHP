@@ -39,14 +39,23 @@ class CarBuy
         return $this->status;
     }
 
-    public function confirmOrder(): void
+    public function confirmOrder(): bool
     {
-        $this->status = 'Confirmado';
-        $this->sendEmailConfirmation();
+        if ($this->valideteCarBuy()) {
+            $this->status = 'Confirmado';
+            $this->sendEmailConfirmation();
+            return true;
+        }
+        return false;
     }
 
     public function sendEmailConfirmation(): void
     {
         echo "<br /> ... envia email de confirmação ...";
+    }
+
+    public function valideteCarBuy(): int
+    {
+        return count($this->itens) > 0;
     }
 }
