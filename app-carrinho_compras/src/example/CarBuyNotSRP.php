@@ -2,7 +2,7 @@
 
 namespace App;
 
-class CarBuy
+class CarBuyNotSRP
 {
     // attributes
     private $itens;
