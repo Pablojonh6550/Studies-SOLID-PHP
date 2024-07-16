@@ -20,17 +20,27 @@ class Item
     {
         return $this->name;
     }
-    public function getValue(): int
+    public function getValue(): float
     {
         return $this->value;
     }
 
     public function setName(string $name): void
     {
-        $this->name = $name;
+        if ($this->hasValidItem($name))
+            $this->name = $name;
     }
     public function setValue(float $value): void
     {
-        $this->value = $value;
+        if ($this->hasValidItem($value))
+            $this->value = $value;
+    }
+
+    private function hasValidItem($data): bool
+    {
+        if ($data == '')
+            return false;
+
+        return true;
     }
 }
