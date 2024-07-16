@@ -14,7 +14,7 @@ class EmailService
         string $de = 'pablojonh6550@gmail.com.br',
         string $from = '',
         string $subject = '',
-        string $content = '',
+        string $content = ''
     ) {
 
         $this->de = $de;
@@ -25,6 +25,7 @@ class EmailService
 
     public static function triggerEmail(): string
     {
+
         return "--- Enviar e-mail ---";
     }
 }
