@@ -3,24 +3,63 @@
 require __DIR__ . "/vendor/autoload.php";
 
 use App\CarBuy;
+use App\Item;
+use App\Order;
+use App\EmailService;
 
-$car = new CarBuy();
+$order = new Order();
+// ------------------------------
+$item1 = new Item();
+$item2 = new Item();
 
-print_r($car->getItens());
-echo 'Valor total: ' . $car->totalValueCar();
+$item1->setName('Porta Copo');
+$item1->setValue(4.55);
 
-$car->setItens("Bicicleta", 750.10);
-$car->setItens("Geladeira", 2330.40);
-$car->setItens("Fogão", 9890.60);
+$item2->setName('Lâmpada');
+$item2->setValue(8.34);
 
-echo "<br />";
+// ------------------------------
+echo '<h4>Pedido Iniciado</h4>';
+echo '<pre>';
+print_r($order);
+echo '</pre>';
 
-print_r($car->getItens());
-echo 'Valor total recalculado: ' . $car->totalValueCar();
+// ------------------------------
+$order->getCarBuy()->setItens($item1);
+$order->getCarBuy()->setItens($item2);
 
-echo "<br />";
-echo 'Status: ' . $car->getStatus();
+// ------------------------------
+echo '<h4>Pedido com itens</h4>';
+echo '<pre>';
+print_r($order);
+echo '</pre>';
 
-$car->confirmOrder();
-echo "<br />";
-echo 'Status: ' . $car->getStatus();
+// ------------------------------
+echo '<h4>Itens do carrinho</h4>';
+echo '<pre>';
+print_r($order->getCarBuy()->getItens());
+echo '</pre>';
+
+// ------------------------------
+echo '<h4>Valor do pedido</h4>';
+echo '<pre>';
+print_r($order->getCarValue());
+echo '</pre>';
+
+// ------------------------------
+echo '<h4>Carrinho está válido?</h4>';
+echo $order->getCarBuy()->valideteCarBuy();
+
+// ------------------------------
+echo '<h4>Status do pedido?</h4>';
+echo $order->getStatus();
+
+// ------------------------------
+echo '<h4>Confirmar pedido</h4>';
+echo $order->confirm();
+
+// ------------------------------
+echo '<h4>E-mail?</h4>';
+if ($order->getStatus() == 'Confirmado') {
+  echo EmailService::triggerEmail();
+}
