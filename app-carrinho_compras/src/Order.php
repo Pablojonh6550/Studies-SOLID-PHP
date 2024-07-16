@@ -35,6 +35,15 @@ class Order
         $this->status = $status;
     }
 
+    public function getCarValue(): float
+    {
+        foreach ($this->carBuy->getItens() as $keys => $item) {
+            $this->carValue += $item->getValue();
+        }
+
+        return $this->carValue;
+    }
+
     public function confirm(): bool
     {
         if ($this->carBuy->valideteCarBuy()) {
