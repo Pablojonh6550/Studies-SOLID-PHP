@@ -36,11 +36,17 @@ class Item
             $this->value = $value;
     }
 
-    private function hasValidItem($data): bool
+    private function hasValidItem($data)
     {
-        if ($data == '')
-            return false;
+        $itemType = gettype($data);
+        $itemTypesValidate = [
+            'string' => 'string',
+            'double' => 'double',
+        ];
 
-        return true;
+        if ($data != '' && $itemTypesValidate[$itemType] == $itemType)
+            return true;
+
+        return false;
     }
 }
