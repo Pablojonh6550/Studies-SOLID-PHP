@@ -1,2 +1,4 @@
 # Studies-SOLID-PHP
-All notes and practices from my journey in SOLID
+Estudos sobre SOLID, usando docker para emular o php. 
+Aqui aplico todos os principios presentes no SOLID.
+
